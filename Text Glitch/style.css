@@ -1,0 +1,66 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #111;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text label{
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+label span{
+  position: relative;
+  color: white;
+  z-index: 2;
+}
+label span:hover{
+  filter: blur(1px);
+}
+.text label::before,
+.text label::after{
+  position: absolute;
+  content: attr(data-content);
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+.text:hover label::before,
+.text:hover label::after{
+  visibility: visible;
+}
+.text:hover label::before{
+  color: rgba(255,0,188,.8);
+  animation: glitch .3s cubic-bezier(.25,.46,.45,.94) both infinite;
+}
+.text:hover label::after{
+  color: rgba(0,255,255,.8);
+  animation: glitch .3s cubic-bezier(.25,.46,.45,.94) reverse both infinite;
+}
+@keyframes glitch {
+  0%{
+    transform: translate(0);
+  }
+  20%{
+    transform: translate(-3px, 3px);
+  }
+  40%{
+    transform: translate(-3px, -3px);
+  }
+  60%{
+    transform: translate(3px, 3px);
+  }
+  80%{
+    transform: translate(3px, -3px);
+  }
+  100%{
+    transform: translate(0);
+  }
+}

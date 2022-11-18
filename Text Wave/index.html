@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Text Wave</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wave">
+      <label>Ashish Kumar
+      </label>
+    </div>
+
+    <script>
+      const text = document.querySelectorAll('label');
+      text.forEach(label =>{
+        label.innerHTML = label.textContent.split('').map((text, wave) =>
+        `<span style="transition-delay: ${wave * 50}ms">${text}</span>`).join('');
+      });
+    </script>
+
+  </body>
+</html>
